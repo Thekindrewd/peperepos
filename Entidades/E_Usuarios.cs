@@ -9,38 +9,38 @@ namespace Entidades
     {
         private string _Accion;
         private int _IdUsuario;
-        private int _IdUsuarioFK;
+        private int _IdTipoUsuario;
         private int _IdEstadoUsuario;
         private string _NombreUsuario;
-        private string _APaternoUsuario;
-        private string _AMaternoUsuario;
-        private string _Email;
-        private string _Clave;
-        private int _CRecuperacion;
+        private string _APaterno;
+        private string _AMaterno;
+        private string _EmailUsuario;
+        private string _PassWordUsuario;
+        private int _CodigoRecuperacion;
 
-        public E_Usuarios(string accion, int idUsuario, int idUsuarioFK, int idEstadoUsuario, string nombreUsuario, string aPaternoUsuario, string aMaternoUsuario, string email, string clave, int cRecuperacion)
+        public E_Usuarios(string accion, int idUsuario, int idTipoUsuario, int idEstadoUsuario, string nombreUsuario, string aPaterno, string aMaterno, string emailUsuario, string passWordUsuario, int codigoRecuperacion)
         {
             Accion = accion;
             IdUsuario = idUsuario;
-            IdUsuarioFK = idUsuarioFK;
+            IdTipoUsuario = idTipoUsuario;
             IdEstadoUsuario = idEstadoUsuario;
             NombreUsuario = nombreUsuario;
-            APaternoUsuario = aPaternoUsuario;
-            AMaternoUsuario = aMaternoUsuario;
-            Email = email;
-            Clave = clave;
-            CRecuperacion = cRecuperacion;
+            APaterno = aPaterno;
+            AMaterno = aMaterno;
+            EmailUsuario = emailUsuario;
+            PassWordUsuario = passWordUsuario;
+            CodigoRecuperacion = codigoRecuperacion;
         }
 
         public string Accion { get => _Accion; set => _Accion = value; }
         public int IdUsuario { get => _IdUsuario; set => _IdUsuario = value; }
-        public int IdUsuarioFK { get => _IdUsuarioFK; set => _IdUsuarioFK = value; }
+        public int IdTipoUsuario { get => _IdTipoUsuario; set => _IdTipoUsuario = value; }
         public int IdEstadoUsuario { get => _IdEstadoUsuario; set => _IdEstadoUsuario = value; }
         public string NombreUsuario { get => _NombreUsuario; set => _NombreUsuario = value; }
-        public string APaternoUsuario { get => _APaternoUsuario; set => _APaternoUsuario = value; }
-        public string AMaternoUsuario { get => _AMaternoUsuario; set => _AMaternoUsuario = value; }
-        public string Email { get => _Email; set => _Email = value; }
-        public string Clave { get => _Clave; set => _Clave = value; }
-        public int CRecuperacion { get => _CRecuperacion; set => _CRecuperacion = value; }
+        public string APaterno { get => _APaterno; set => _APaterno = value; }
+        public string AMaterno { get => _AMaterno; set => _AMaterno = value; }
+        public string EmailUsuario { get => _EmailUsuario; set => _EmailUsuario = value; }
+        public string PassWordUsuario { get => _PassWordUsuario; set => _PassWordUsuario = value; }
+        public int CodigoRecuperacion { get => _CodigoRecuperacion; set => _CodigoRecuperacion = value; }
     }
 }

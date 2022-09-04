@@ -5,54 +5,50 @@ using System.Web;
 
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+
+using Entidades;
 
 namespace Datos
 {
-    public class D_Usuarios
+    public class D_Usuarios: D_Conexion
     {
-        public SqlConnection Conexion;
+        public D_Usuarios() { }
 
-        public D_Usuarios(SqlConnection Conexion)
+        public int IBMUsuario(string pAccion, E_Usuarios objeE_Usuario)
+        {
+            int Resultado =0;
+            SqlCommand cmd = new SqlCommand("IBM_Usuario", Conexion)
             {
-            Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionBD"].ConnectionString);
-            }
+                CommandType = CommandType.StoredProcedure
+            };
 
-        public SqlConnection GetConexion()
-        {
-            return Conexion;
-        }
+            cmd.Parameters.AddWithValue("@Accion", pAccion);
+            cmd.Parameters.AddWithValue("@IdUsuario", objeE_Usuario.IdUsuario);
+            cmd.Parameters.AddWithValue("@IdEstadoUsuario", objeE_Usuario.IdEstadoUsuario);
+            cmd.Parameters.AddWithValue("@IdTipoUsuario", objeE_Usuario.IdTipoUsuario);
+            cmd.Parameters.AddWithValue("@NombreUsuario", objeE_Usuario.NombreUsuario);
+            cmd.Parameters.AddWithValue("@APaterno", objeE_Usuario.APaterno);
+            cmd.Parameters.AddWithValue("@AMaterno", objeE_Usuario.AMaterno);
+            cmd.Parameters.AddWithValue("@EmailUsuario", objeE_Usuario.EmailUsuario);
+            cmd.Parameters.AddWithValue("@CodigoRecuperacion", objeE_Usuario.CodigoRecuperacion);
 
-        public void AbrirConexion(SqlConnection Conexion)
-        {
             try
             {
-                if (Conexion.State == ConnectionState.Broken || Conexion.State == ConnectionState.Closed)
-                {
-                    Conexion.Open();
-                }
-                
+                AbrirConexion();
+                Resultado = cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al tratar de conectar",ex);
+                throw new Exception("ERROR al tratar de almacenar, modificar o borrar",ex);
             }
-        }
-
-        public void CerrarConexion(SqlConnection Conexion)
-        {
-            try
+            finally
             {
-                if (Conexion.State == ConnectionState.Open)
-                {
-                    Conexion.Close();
-                }
+                CerrarConexion();
+                cmd.Dispose();
+            }
+            return Resultado;
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al tratar de Cerrar la conexion", ex);
-            }
+
         }
     }
 }
