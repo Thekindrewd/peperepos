@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="login.aspx" />
+    <Content Include="MainEstudiante.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -78,6 +79,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainEstudiante.aspx.cs">
+      <DependentUpon>MainEstudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainEstudiante.aspx.designer.cs">
+      <DependentUpon>MainEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainMP.Master.cs">
       <DependentUpon>MainMP.Master</DependentUpon>

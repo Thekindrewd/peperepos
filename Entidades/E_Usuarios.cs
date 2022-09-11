@@ -16,7 +16,7 @@ namespace Entidades
         private string _AMaterno;
         private string _EmailUsuario;
         private string _PassWordUsuario;
-        private int _CodigoRecuperacion;
+        //private int _CodigoRecuperacion;
 
         public E_Usuarios()
         {
@@ -33,7 +33,7 @@ namespace Entidades
             AMaterno = aMaterno;
             EmailUsuario = emailUsuario;
             PassWordUsuario = passWordUsuario;
-            CodigoRecuperacion = codigoRecuperacion;
+           // CodigoRecuperacion = codigoRecuperacion;
         }
 
         public string Accion { get => _Accion; set => _Accion = value; }
@@ -45,6 +45,6 @@ namespace Entidades
         public string AMaterno { get => _AMaterno; set => _AMaterno = value; }
         public string EmailUsuario { get => _EmailUsuario; set => _EmailUsuario = value; }
         public string PassWordUsuario { get => _PassWordUsuario; set => _PassWordUsuario = value; }
-        public int CodigoRecuperacion { get => _CodigoRecuperacion; set => _CodigoRecuperacion = value; }
+        //public int CodigoRecuperacion { get => _CodigoRecuperacion; set => _CodigoRecuperacion = value; }
     }
 }

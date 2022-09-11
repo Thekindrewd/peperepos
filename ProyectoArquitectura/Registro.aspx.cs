@@ -36,10 +36,15 @@ namespace ProyectoArquitectura
             ObjUsuario.EmailUsuario = lbemail.Text;
             ObjUsuario.PassWordUsuario = lbPassword.Text;
             ObjUsuario.IdTipoUsuario = DLTipoUsuario.SelectedIndex;
-            ObjUsuario.CodigoRecuperacion = 123;
-            //ObjUsuario.IdEstadoUsuario = ;
+            //ObjUsuario.CodigoRecuperacion = 123;
+            ObjUsuario.IdEstadoUsuario = 1;
         }
-        
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             if(lbNombre.Text == "")
@@ -85,6 +90,7 @@ namespace ProyectoArquitectura
                                     if(nGrabar != -1)
                                     {
                                         LblError.Text="Haz sido registrado";
+                                        Response.Redirect("login.aspx");
                                     }
                                     else
                                     {
@@ -99,6 +105,9 @@ namespace ProyectoArquitectura
             
         }
 
-    
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

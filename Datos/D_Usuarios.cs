@@ -17,6 +17,7 @@ namespace Datos
         public int IBMUsuario(string pAccion, E_Usuarios objeE_Usuario)
         {
             int Resultado =0;
+            
             SqlCommand cmd = new SqlCommand("IBM_Usuario", Conexion)
             {
                 CommandType = CommandType.StoredProcedure
@@ -31,12 +32,17 @@ namespace Datos
             cmd.Parameters.AddWithValue("@AMaterno", objeE_Usuario.AMaterno);
             cmd.Parameters.AddWithValue("@EmailUsuario", objeE_Usuario.EmailUsuario);
             cmd.Parameters.AddWithValue("@PassWordUsuario", objeE_Usuario.PassWordUsuario);
-            cmd.Parameters.AddWithValue("@CodigoRecuperacion", objeE_Usuario.CodigoRecuperacion);
-
+            //cmd.Parameters.AddWithValue("@CodigoRecuperacion", objeE_Usuario.CodigoRecuperacion);
+            
             try
             {
                 AbrirConexion();
                 Resultado = cmd.ExecuteNonQuery();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Resultado = 1;
+                }
             }
             catch (Exception ex)
             {
@@ -48,6 +54,7 @@ namespace Datos
                 cmd.Dispose();
             }
             return Resultado;
+            
 
 
         }

@@ -3,12 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     Correo electronico institucional:<br />
-    <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged" Width="193px"></asp:TextBox>
+    <asp:TextBox ID="tbEmail" runat="server" Width="193px"></asp:TextBox>
     <br />
     Contraseña:<br />
-    <asp:TextBox ID="TextBox2" runat="server" Width="188px"></asp:TextBox>
+    <asp:TextBox ID="tbClave" runat="server" Width="188px"></asp:TextBox>
     <br />
+    <asp:Label ID="lbErrorValidar" runat="server" Text=""></asp:Label>
     <br />
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Ingresar" />
+    <asp:Button ID="btnInicioSesion" runat="server" OnClick="btnInicioSesion_Click" Text="Ingresar" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="btnRegistrar" runat="server" Text="Crear Cuenta" OnClick="btnRegistrar_Click" />
 &nbsp;
 </asp:Content>
