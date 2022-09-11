@@ -18,6 +18,10 @@ namespace Entidades
         private string _PassWordUsuario;
         private int _CodigoRecuperacion;
 
+        public E_Usuarios()
+        {
+        }
+
         public E_Usuarios(string accion, int idUsuario, int idTipoUsuario, int idEstadoUsuario, string nombreUsuario, string aPaterno, string aMaterno, string emailUsuario, string passWordUsuario, int codigoRecuperacion)
         {
             Accion = accion;

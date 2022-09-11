@@ -8,7 +8,7 @@ using Entidades;
 
 namespace Negocios
 {
-    public class Negocios
+    public class N_Usuario
     {
         D_Usuarios objNegocioUsuario = new D_Usuarios();
 

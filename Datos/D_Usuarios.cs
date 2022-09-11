@@ -30,6 +30,7 @@ namespace Datos
             cmd.Parameters.AddWithValue("@APaterno", objeE_Usuario.APaterno);
             cmd.Parameters.AddWithValue("@AMaterno", objeE_Usuario.AMaterno);
             cmd.Parameters.AddWithValue("@EmailUsuario", objeE_Usuario.EmailUsuario);
+            cmd.Parameters.AddWithValue("@PassWordUsuario", objeE_Usuario.PassWordUsuario);
             cmd.Parameters.AddWithValue("@CodigoRecuperacion", objeE_Usuario.CodigoRecuperacion);
 
             try
