@@ -1,0 +1,86 @@
+Tablas
+//T_Usuario
+IdUsuario 		int (set primary key)
+IdEstadoUsuario 	int
+IdTipoUsuario 		int
+NombreUsuario		nvarchar(100)
+APaterno			nvarchar(100)
+AMaterno			nvarchar(100)
+EmailUsuario		nvarchar(150)
+PassWordUsuario	nvarchar(100)
+CodigoRecuperacion	nchar(10)
+
+//TipoUsuario
+IdTipoUsuario		int(Set Primary key)
+NombreTipoUsuario	nvarchar(100)
+
+//EstadoUsuario
+IdEstadoUsuario	int(Set Primary key)
+NombreEstadoUsario	nvarchar(100)
+
+//Stored procedure modificado
+
+ALTER PROCEDURE [dbo].[IBM_Usuario]
+@Accion				nvarchar(25),
+@IdUsuario			int,
+@IdEstadoUsuario	int,
+@NombreUsuario		nvarchar(100),
+@APaterno			nvarchar(100),
+@AMaterno			nvarchar(100),
+@EmailUsuario		nvarchar(150),
+@PassWordUsuario	nvarchar(100),
+@CodigoRecuperacion	nchar(10)
+
+AS
+
+begin
+	IF @Accion = 'Insertar'
+		BEGIN
+			--VERFIES THAT EmailUsuario DOES NOT EXISTS IN REQUIERE QUERY--
+		 IF NOT EXISTS (SELECT * FROM [dbo].Usuario WHERE EmailUsuario = @EmailUsuario)
+			INSERT INTO [dbo].Usuarios(IdEstadoUsuario,NombreUsuario,
+			APaterno, AMaterno,EmailUsuario,PassWordUsuario,CodigoRecuperacion)
+					VALUES (@IdEstadoUsuario,@NombreUsuario,@APaterno,@AMaterno,@EmailUsuario,@PassWordUsuario,@CodigoRecuperacion)
+		END
+	
+	IF @Accion = 'Borrar'
+		BEGIN
+		--Verifica que el usuario no este aosciado con SistemaUsuariRrol--
+		--IF NOT EXISTS (SELECT * FROM [dbo].SistemaUsuarioRol WHERE IdUsuario = @IdUsuario--
+			DELETE FROM [dbo].Usuarios WHERE IdUsuario = @IdUsuario
+		END
+
+	IF @Accion = 'Modificar'
+		BEGIN
+			--Verifica que no exista EmailUsuario cuando IdUsaurio sea diferente al que se quiere modificar--
+			IF (NOT EXISTS (SELECT * FROM [dbo].Usuarios WHERE EmailUsuario = @EmailUsuario AND IdUsuario <> @IdUsuario))
+				UPDATE [dbo].Usuarios
+				SET 
+					IdEstadoUsuario = @IdEstadoUsuario,
+					NombreUsuario = @NombreUsuario,
+					APaterno = @APaterno,
+					AMaterno = @AMaterno,
+					EmailUsuario = @EmailUsuario,
+					PassWordUsuario = @PassWordUsuario,
+					CodigoRecuperacion = @CodigoRecuperacion
+
+				WHERE IdUsuario = @IdUsuario
+			END
+
+		IF @Accion = 'Actualiza_Estado'
+		BEGIN
+			UPDATE dbo.Usuarios SET IdEstadoUsuario = @IdEstadoUsuario WHERE IdUsuario = @IdUsuario
+		END
+		IF @Accion = 'Graba_Codigo'
+		BEGIN
+			UPDATE dbo.Usuarios SET CodigoRecuperacion = @CodigoRecuperacion WHERE IdUsuario = @IdUsuario
+		END
+		IF @Accion = 'Borra_Codigo'
+		BEGIN
+			UPDATE dbo.Usuarios SET
+				PassWordUsuario = @PassWordUsuario,
+				@CodigoRecuperacion = '' Where IdUsuario = @IdUsuario
+		END
+END
+
+
