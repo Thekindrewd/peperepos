@@ -71,8 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D_Conexion.cs" />
+    <Compile Include="D_Inventario.cs" />
     <Compile Include="D_Usuarios.cs" />
-    <Compile Include="E_Inventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
