@@ -11,5 +11,6 @@ namespace Datos
 {
     public class E_Inventario
     {
+
     }
 }
