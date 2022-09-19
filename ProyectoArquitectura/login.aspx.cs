@@ -51,36 +51,14 @@ namespace ProyectoArquitectura
 
                     TextObjValidar();
                     nValidar = ObjNegocio.IBMUsuario("Validar", ObjUsuario);
-                    
-                    if (nValidar == 1)
+                    if (nValidar != -1)
                     {
 
                         Response.Redirect("MainEstudiante.aspx");
                     }
                     else
                     {
-                        if(nValidar == 2)
-                        {
-                            Response.Redirect("MainMaestro.aspx");
-                        }
-                        else
-                        {
-                            if (nValidar == 3)
-                            {
-                                Response.Redirect("MainPasante.aspx");
-                            }
-                            else
-                            {
-                                if (nValidar == 4)
-                                {
-                                    Response.Redirect("MainAdmin.aspx");
-                                }
-                                else
-                                {
-                                    lbErrorValidar.Text = +nValidar+"";
-                                }
-                            }
-                        }
+                        lbErrorValidar.Text = "Error, a sucedido un error al iniciar sesion";
                     }
                 }
             }
