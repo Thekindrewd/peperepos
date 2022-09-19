@@ -14,7 +14,7 @@ namespace Negocios
 
         public int IBMUsuario(string pAccion, E_Usuarios objeE_Usuario)
         {
-            return objNegocioUsuario.IBMUsuario(pAccion, objeE_Usuario);
+            return objNegocioUsuario.IBMUsuario(pAccion, objeE_Usuario: objeE_Usuario);
         }
     }
 }

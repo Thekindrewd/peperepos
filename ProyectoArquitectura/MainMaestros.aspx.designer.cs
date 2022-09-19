@@ -11,7 +11,7 @@ namespace ProyectoArquitectura
 {
 
 
-    public partial class MainEstudiante
+    public partial class MainMaestros
     {
     }
 }

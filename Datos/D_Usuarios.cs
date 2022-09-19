@@ -41,8 +41,32 @@ namespace Datos
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    Resultado = 1;
-                }
+                    if (objeE_Usuario.IdTipoUsuario == 0)
+                    {
+                        Resultado = 1; 
+                    }
+                    else
+                    {
+                        if (objeE_Usuario.IdTipoUsuario == 1)
+                        {
+                            Resultado = 2;
+                        }
+                        else
+                        {
+                            if (objeE_Usuario.IdTipoUsuario == 2)
+                            {
+                                Resultado = 3;
+                            }
+                            else
+                            {
+                                if (objeE_Usuario.IdTipoUsuario == 3)
+                                {
+                                    Resultado = 4;
+                                }
+                            }
+                        }
+                    }
+                }   
             }
             catch (Exception ex)
             {
@@ -54,9 +78,6 @@ namespace Datos
                 cmd.Dispose();
             }
             return Resultado;
-            
-
-
         }
     }
 }
