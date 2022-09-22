@@ -38,11 +38,11 @@ namespace Datos
             {
                 AbrirConexion();
                 Resultado = cmd.ExecuteNonQuery();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    Resultado = 1;
-                }
+                //SqlDataReader dr = cmd.ExecuteReader();
+                //if (dr.Read())
+                //{
+                //    Resultado = 1;
+                //}
             }
             catch (Exception ex)
             {

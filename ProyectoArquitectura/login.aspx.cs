@@ -47,7 +47,7 @@ namespace ProyectoArquitectura
                 }
                 else
                 { 
-                    int nValidar = -1;
+                    int nValidar;
 
                     TextObjValidar();
                     nValidar = ObjNegocio.IBMUsuario("Validar", ObjUsuario);

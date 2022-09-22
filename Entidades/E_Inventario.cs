@@ -7,14 +7,17 @@ namespace Entidades
 {
     public class E_Inventario
     {
-        #region 
+        
         private int _IdInventario;
         private int _IdArticulo;
         private string _NombreArticulo;
         private string _Descripcion;
         private int _ClaveLaboratorio;
         private int _Cantidad;
-        #endregion
+
+        public E_Inventario()
+        {
+        }
 
         public E_Inventario(int idInventario, int idArticulo, string nombreArticulo, string descripcion, int claveLaboratorio, int cantidad)
         {
@@ -25,7 +28,7 @@ namespace Entidades
             ClaveLaboratorio = claveLaboratorio;
             Cantidad = cantidad;
         }
-
+       
         public int IdInventario { get => _IdInventario; set => _IdInventario = value; }
         public int IdArticulo { get => _IdArticulo; set => _IdArticulo = value; }
         public string NombreArticulo { get => _NombreArticulo; set => _NombreArticulo = value; }
