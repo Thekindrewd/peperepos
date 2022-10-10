@@ -10,7 +10,7 @@ using Entidades;
 
 namespace Datos
 {
-    public class D_Inventario: D_Conexion
+    public class D_Inventario : D_Conexion
     {
         public D_Inventario() { }
 
@@ -24,7 +24,7 @@ namespace Datos
             };
 
             cmd.Parameters.AddWithValue("@Accion", pAccion);
-            cmd.Parameters.AddWithValue("@IdInventario", objeE_Inventario.IdInventario);
+
             cmd.Parameters.AddWithValue("@IdArticulo", objeE_Inventario.IdArticulo);
             cmd.Parameters.AddWithValue("@NombreArticulo", objeE_Inventario.NombreArticulo);
             cmd.Parameters.AddWithValue("@Descripcion", objeE_Inventario.Descripcion);
@@ -35,11 +35,7 @@ namespace Datos
             {
                 AbrirConexion();
                 Resultado = cmd.ExecuteNonQuery();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    Resultado = 1;
-                }
+
             }
             catch (Exception ex)
             {
@@ -51,6 +47,67 @@ namespace Datos
                 cmd.Dispose();
             }
             return Resultado;
-        }   
+
+
+        }
+        public DataSet IBMListadoInventario()
+        {
+            SqlCommand cmd = new SqlCommand();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            try
+            {
+                AbrirConexion();
+                cmd.Connection = Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[IBM_ListadoInventario]";
+
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Datos Inventario ", ex);
+            }
+            finally
+            {
+                Conexion.Close();
+                cmd.Dispose();
+            }
+            return ds;
+
+        }
+
+        public DataSet IBMSeleccionarInventario(int pIdArticulo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            try
+            {
+                AbrirConexion();
+                cmd.Connection = Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[IBM_SelecionarInventario]";
+               
+                cmd.Parameters.AddWithValue("@IdArticulo", pIdArticulo);
+
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Datos Inventario ", ex);
+            }
+            finally
+            {
+                Conexion.Close();
+                cmd.Dispose();
+            }
+            return ds;
+
+        }
     }
 }

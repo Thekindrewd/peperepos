@@ -60,6 +60,15 @@ namespace ProyectoArquitectura
         protected global::System.Web.UI.WebControls.Button btnModificarInv;
 
         /// <summary>
+        /// btnListadoInv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnListadoInv;
+
+        /// <summary>
         /// pnlAltas control.
         /// </summary>
         /// <remarks>
@@ -69,15 +78,6 @@ namespace ProyectoArquitectura
         protected global::System.Web.UI.WebControls.Panel pnlAltas;
 
         /// <summary>
-        /// lblNombreArt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreArt;
-
-        /// <summary>
         /// lblMensaje control.
         /// </summary>
         /// <remarks>
@@ -85,15 +85,6 @@ namespace ProyectoArquitectura
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
-
-        /// <summary>
-        /// tbArticulo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbArticulo;
 
         /// <summary>
         /// tbDescripcion control.
@@ -112,15 +103,6 @@ namespace ProyectoArquitectura
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbCantidad;
-
-        /// <summary>
-        /// tbNombreArt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNombreArt;
 
         /// <summary>
         /// tbClaveLab control.
@@ -159,15 +141,6 @@ namespace ProyectoArquitectura
         protected global::System.Web.UI.WebControls.Label lblDescripcion;
 
         /// <summary>
-        /// btnCancelar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
-
-        /// <summary>
         /// btnGrabar control.
         /// </summary>
         /// <remarks>
@@ -177,21 +150,30 @@ namespace ProyectoArquitectura
         protected global::System.Web.UI.WebControls.Button btnGrabar;
 
         /// <summary>
-        /// lblIdArt control.
+        /// tbNombreArt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdArt;
+        protected global::System.Web.UI.WebControls.TextBox tbNombreArt;
 
         /// <summary>
-        /// G control.
+        /// btnCancelar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource G;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
+
+        /// <summary>
+        /// lblNombreArt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreArt;
     }
 }

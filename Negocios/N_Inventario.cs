@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -14,6 +15,16 @@ namespace Negocios
         public int IBMInventario(string pAccion, E_Inventario objeE_Inventario)
         {
             return objNegocioinventario.IBMInventario(pAccion, objeE_Inventario);
+        }
+        
+        public DataSet IBMListadoInventario()
+        {
+            return objNegocioinventario.IBMListadoInventario();
+        }
+
+        public DataSet IBMSeleccionarInventario(int pIdArticulo)
+        {
+            return objNegocioinventario.IBMSeleccionarInventario(pIdArticulo);
         }
     }
 }
